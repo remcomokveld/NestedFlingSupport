@@ -839,7 +839,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                if (mIsBeingDragged) {
+                if (mIsBeingDragged || hasNestedScrollingParent()) {
                     final VelocityTracker velocityTracker = mVelocityTracker;
                     velocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
                     int initialVelocity = (int) VelocityTrackerCompat.getYVelocity(velocityTracker,
